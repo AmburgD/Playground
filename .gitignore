@@ -1,0 +1,5 @@
+.vscode
+TestSandbox.sln
+bin
+obj
+TestSandbox/TestSandbox.csproj
