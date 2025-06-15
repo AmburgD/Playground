@@ -25,4 +25,57 @@ static void getNumbers()
     int sum = Add(number1, number2);
     Console.WriteLine($"The sum of {number1} and {number2} is: {sum}");
 }
-getNumbers();
+// getNumbers();
+
+static int sumN(int n)
+{
+    if (n <= 0) return 0;
+    Console.WriteLine($"n: {n}");
+    return n + sumN(n - 1);
+}
+// Console.WriteLine(sumN(5)); // Outputs 15 (5 + 4 + 3 + 2 + 1)
+
+static int CountDown(int n)
+{
+    if (n == 0) return 0;
+
+    Console.WriteLine(n);
+    return CountDown(n - 1);
+}
+// CountDown(5);
+
+static void GenerateBinaryStrings(int n, string current)
+{
+    if (current.Length == n)
+    {
+        Console.WriteLine(current);
+        return;
+    }
+
+    GenerateBinaryStrings(n, current + "0");
+    GenerateBinaryStrings(n, current + "1");
+}
+// GenerateBinaryStrings(3,"");
+
+static void GenerateParentheses(int n, string current, int open, int close)
+{
+    if (current.Length == n * 2)
+    {
+        Console.WriteLine(current);
+        return;
+    }
+
+    // Add an open parenthesis if we haven't used all n
+    if (open < n)
+    {
+        GenerateParentheses(n, current + "(", open + 1, close);
+    }
+
+    // Add a close parenthesis if we haven't closed more than opened
+    if (close < open)
+    {
+        GenerateParentheses(n, current + ")", open, close + 1);
+    }
+}
+
+GenerateParentheses(3, "", 0, 0);
