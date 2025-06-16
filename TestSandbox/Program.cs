@@ -79,3 +79,17 @@ static void GenerateParentheses(int n, string current, int open, int close)
 }
 
 GenerateParentheses(3, "", 0, 0);
+
+
+List<int> scores = [27, 45, 63, 42, 58, 76, 31, 25, 97, 98, 01, 24, 99, 12];
+foreach (var score in scores)
+{
+    Console.WriteLine($"Score: {score}");
+}
+IEnumerable<int> highScore = 
+    from s in scores
+    where s >= 90
+    select s;
+
+var bestScore = highScore.ToList();
+Console.WriteLine($"The best scores are {bestScore}");
